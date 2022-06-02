@@ -23,10 +23,10 @@ public class MyWorld extends World
     }
     public void spawnLaser(int x,int y)
     {
-        MouseInfo coords = Greenfoot.getMouseInfo();
         banana l = new banana();
         addObject(l,x,y);           
     }
+    
     
     
 }
