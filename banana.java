@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class banana extends Actor
 {
     GreenfootImage beam = new GreenfootImage("images/LASER.png");
-    MouseInfo mouse = Greenfoot.getMouseInfo();
     /**
      * Act - do whatever the laser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,17 +20,10 @@ public class banana extends Actor
     public void act()
     {   
         beam.scale(200,100);
-        if(mouse != null)
+        move(-5);    
+        if(isAtEdge())
         {
-            if(mouse.getButton() == 1)
-            {
-                while(!isAtEdge())
-                {
-                    move(-5);
-                }   
-                getWorld().removeObject(this);
-                
-            }
+            getWorld().removeObject(this);
         }
         
     }

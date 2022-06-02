@@ -19,7 +19,7 @@ public class Person extends Actor
         time.mark();
         jump.mark();
     }
-    
+
     public void act()
     {
         
@@ -28,6 +28,7 @@ public class Person extends Actor
         //  Code here for firing a new shot
         //  timer.mark(); // Reset the timer
         //}
+        MouseInfo mouse = Greenfoot.getMouseInfo();
         if(time.millisElapsed() > 1000 && Greenfoot.isKeyDown("d") && Greenfoot.isKeyDown("shift"))
         {
             move(80);
@@ -56,7 +57,14 @@ public class Person extends Actor
         {
             setLocation(getX(), getY()+1);
         }
-        
+        if(mouse != null)
+        {            
+            if(mouse.getButton() == 1)
+            {
+                MyWorld world = (MyWorld) getWorld();
+                world.spawnLaser(getX(), getY());
+            }
+        }
 
         
     

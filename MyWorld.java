@@ -20,10 +20,13 @@ public class MyWorld extends World
         Person p = new Person();
         addObject(p, 300, 380);
         snake s = new snake();
-        banana l = new banana();
-        
     }
-    
+    public void spawnLaser(int x,int y)
+    {
+        MouseInfo coords = Greenfoot.getMouseInfo();
+        banana l = new banana();
+        addObject(l,x,y);           
+    }
     
     
 }
