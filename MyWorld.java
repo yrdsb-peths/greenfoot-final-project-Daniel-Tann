@@ -21,7 +21,6 @@ public class MyWorld extends World
         addObject(p, 300, 380);
         snake s = new snake();
         banana l = new banana();
-        addObject(l, 300,200);
         
     }
     
