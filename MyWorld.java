@@ -21,6 +21,8 @@ public class MyWorld extends World
         addObject(p, 300, 380);
         snake s = new snake();
         addObject(s,100,200);
+        Dragon d = new Dragon();
+        addObject(d, 300,200);
     }
     public void spawnLaser(int x,int y)
     {
