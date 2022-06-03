@@ -20,14 +20,17 @@ public class snake extends Actor
     public void act()
     {
         // Add your action code here.
-        move(2);
+        move(1);
         if(isAtEdge())
         {
             turn(70);
         }
         if(spawn.millisElapsed() > 1000)
         {
-       
+            MyWorld world = (MyWorld) getWorld();
+            world.mitosis();
+            spawn.mark();
         }
+        
     }
 }

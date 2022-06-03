@@ -20,11 +20,17 @@ public class MyWorld extends World
         Person p = new Person();
         addObject(p, 300, 380);
         snake s = new snake();
+        addObject(s,100,200);
     }
     public void spawnLaser(int x,int y)
     {
         banana l = new banana();
         addObject(l,x,y);           
+    }
+    public void mitosis()
+    {
+        snake dupe = new snake();
+        addObject(dupe,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
     }
     
     

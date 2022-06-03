@@ -11,6 +11,7 @@ public class banana extends Actor
     GreenfootImage beam = new GreenfootImage("images/LASER.png");
     int x = 0;
     int y = 0;
+    int shoot = 1;
     /**
      * Act - do whatever the laser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,13 +22,19 @@ public class banana extends Actor
         beam.scale(200,100);
     }
     public void act()
-    {   mouseCoords();
+    {   
+        if(shoot == 1)
+        {
+            mouseCoords();
+            shoot--;
+        }
         move(-5);
+        removeTouching(snake.class);
         if(isAtEdge())
         {
             getWorld().removeObject(this);
+            shoot++;
         }
-        
     }
     public void mouseCoords()
     {
@@ -36,6 +43,7 @@ public class banana extends Actor
         y = coords.getY();
         turnTowards(x,y);
         turn(180);
+
     }
     
 }
