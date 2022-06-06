@@ -7,11 +7,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Dragon extends Actor
 {
+    SimpleTimer dragonBreath = new SimpleTimer();
     GreenfootImage boss = new GreenfootImage("images/PngItem_377031.png");
     public Dragon()
     {
         setImage(boss);
         boss.scale(100,100);
+        dragonBreath.mark();
     }
     /**
      * Act - do whatever the Dragon wants to do. This method is called whenever
@@ -24,5 +26,11 @@ public class Dragon extends Actor
         {
             turn(180);
         }
+        if(dragonBreath.millisElapsed() > 10000)
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnFire(getX(), getY());
+        }
     }
+    
 }

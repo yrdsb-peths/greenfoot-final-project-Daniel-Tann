@@ -22,12 +22,6 @@ public class Person extends Actor
 
     public void act()
     {
-        
-        // if (timer.millisElapsed() > 1000 && Greenfoot.isKeyDown("space"))
-        //{
-        //  Code here for firing a new shot
-        //  timer.mark(); // Reset the timer
-        //}
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(time.millisElapsed() > 1000 && Greenfoot.isKeyDown("d") && Greenfoot.isKeyDown("shift"))
         {
@@ -65,8 +59,15 @@ public class Person extends Actor
                 world.spawnLaser(getX(), getY());
             }
         }
-
         
-    
+            
+    }
+    public int returnX()
+    {
+        return getX();  
+    }
+    public int returnY()
+    {
+        return getY();
     }
 }

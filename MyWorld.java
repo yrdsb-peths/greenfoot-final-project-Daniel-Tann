@@ -23,6 +23,7 @@ public class MyWorld extends World
         addObject(s,100,200);
         Dragon d = new Dragon();
         addObject(d, 300,200);
+        
     }
     public void spawnLaser(int x,int y)
     {
@@ -33,6 +34,19 @@ public class MyWorld extends World
     {
         snake dupe = new snake();
         addObject(dupe,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
+    }
+    public void spawnFire(int x, int y)
+    {
+        dragon_fire spawnFire = new dragon_fire();
+        addObject(spawnFire,x,y);
+    }
+    public int personX()
+    {
+       return 
+    }
+    public int personY()
+    {
+        return p.returnY();
     }
     
     

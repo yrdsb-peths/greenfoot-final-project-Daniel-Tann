@@ -8,4 +8,6 @@ comment2.params=x\ y
 comment2.target=void\ spawnLaser(int,\ int)
 comment3.params=
 comment3.target=void\ mitosis()
-numComments=4
+comment4.params=x\ y
+comment4.target=void\ spawnFire(int,\ int)
+numComments=5
