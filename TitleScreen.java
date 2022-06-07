@@ -29,7 +29,6 @@ public class TitleScreen extends World
         {
             Controls controls = new Controls();
             Greenfoot.setWorld(controls);            
-           
         }
     }
 }

@@ -60,7 +60,6 @@ public class Person extends Actor
                 world.spawnLaser(getX(), getY());
             }
         }
-        
             
     }
    

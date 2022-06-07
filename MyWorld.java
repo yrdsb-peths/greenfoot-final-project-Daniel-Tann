@@ -27,7 +27,8 @@ public class MyWorld extends World
         addObject(s,100,200);
         Dragon d = new Dragon();
         //addObject(d, 300,100);
-        
+        Portal door = new Portal();
+        addObject(door,550,350);
     }
   
     public void spawnLaser(int x,int y)
@@ -44,6 +45,16 @@ public class MyWorld extends World
     {
         dragon_fire spawnFire = new dragon_fire();
         addObject(spawnFire,x,y);
+    }
+    public void createPortal()
+    {
+        Portal door = new Portal();
+        addObject(door,550,350);
+    }
+    public void nextWorld()
+    {
+        secondLevel second = new secondLevel();
+        Greenfoot.setWorld(second); 
     }
    
     
