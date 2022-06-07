@@ -21,11 +21,12 @@ public class snake extends Actor
     {
         // Add your action code here.
         move(1);
+        removeTouching(Person.class);
         if(isAtEdge())
         {
             turn(70);
         }
-        if(spawn.millisElapsed() > 1000)
+        if(spawn.millisElapsed() > 5000)
         {
             MyWorld world = (MyWorld) getWorld();
             world.mitosis();

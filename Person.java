@@ -26,12 +26,12 @@ public class Person extends Actor
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(time.millisElapsed() > 1000 && Greenfoot.isKeyDown("d") && Greenfoot.isKeyDown("shift"))
         {
-            move(80);
+            setLocation(getX()+80,getY());
             time.mark();
         }
         if(time.millisElapsed() > 1000 && Greenfoot.isKeyDown("a") && Greenfoot.isKeyDown("shift"))
         {
-            move(-80);
+            setLocation(getX()-80, getY());
             time.mark();
         }
         //Moving Normally

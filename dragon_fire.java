@@ -29,6 +29,7 @@ public class dragon_fire extends Actor
             fire--;
         }
         move(-3);
+        removeTouching(Person.class);
         if(isAtEdge())
         {
             getWorld().removeObject(this);
@@ -38,6 +39,6 @@ public class dragon_fire extends Actor
     public void coords()
     {
     
-        turnTowards(Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
+        turnTowards(Greenfoot.getRandomNumber(600),0);
     }
 }

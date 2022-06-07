@@ -26,7 +26,7 @@ public class MyWorld extends World
         snake s = new snake();
         addObject(s,100,200);
         Dragon d = new Dragon();
-        addObject(d, 300,200);
+        //addObject(d, 300,100);
         
     }
   
