@@ -8,7 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    boolean test = true;
     int x = 0;
+    int personX = 0;
+    int personY = 0;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,6 +29,7 @@ public class MyWorld extends World
         addObject(d, 300,200);
         
     }
+  
     public void spawnLaser(int x,int y)
     {
         banana l = new banana();
@@ -40,14 +45,7 @@ public class MyWorld extends World
         dragon_fire spawnFire = new dragon_fire();
         addObject(spawnFire,x,y);
     }
-    public int personX()
-    {
-       return 
-    }
-    public int personY()
-    {
-        return p.returnY();
-    }
+   
     
     
     

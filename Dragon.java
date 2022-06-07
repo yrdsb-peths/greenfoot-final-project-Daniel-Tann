@@ -8,28 +8,53 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Dragon extends Actor
 {
     SimpleTimer dragonBreath = new SimpleTimer();
-    GreenfootImage boss = new GreenfootImage("images/PngItem_377031.png");
+    GreenfootImage rightBoss = new GreenfootImage("images/PngItem_377031.png");
+    GreenfootImage leftBoss = new GreenfootImage("images/PngItem_377031.png");
+    String facing = "left";
     public Dragon()
     {
-        setImage(boss);
-        boss.scale(100,100);
+        rightBoss.mirrorHorizontally();
+        setImage(leftBoss);
+        leftBoss.scale(100,100);
+        rightBoss.scale(100,100);
         dragonBreath.mark();
+        
     }
+    
+
     /**
      * Act - do whatever the Dragon wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        move(-1);
-        if(isAtEdge())
+        if(facing.equals("left"))
         {
-            turn(180);
+            move(-1);
         }
-        if(dragonBreath.millisElapsed() > 10000)
+        if(facing.equals("right"))
+        {
+            move(1);
+        }
+        if(getX() == 0)
+        {
+            setImage(rightBoss);
+            facing = "right";
+        }
+        if(getX() == 599)
+        {
+            setImage(leftBoss);
+            facing = "left";
+        }
+        if(dragonBreath.millisElapsed() > 3000 && getX() > 100 && getX() < 500)
         {
             MyWorld world = (MyWorld) getWorld();
             world.spawnFire(getX(), getY());
+            for(int i = 0; i < 10; i++)
+            {
+                world.spawnFire(getX(), getY());
+            }
+            dragonBreath.mark();
         }
     }
     

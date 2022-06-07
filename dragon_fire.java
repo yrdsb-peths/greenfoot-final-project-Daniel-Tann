@@ -28,7 +28,7 @@ public class dragon_fire extends Actor
             coords();
             fire--;
         }
-        move(-5);
+        move(-3);
         if(isAtEdge())
         {
             getWorld().removeObject(this);
@@ -37,10 +37,7 @@ public class dragon_fire extends Actor
     }
     public void coords()
     {
-        
-       // x = .personX();
-        //y = .personY();
-        //turnTowards(x,y);
-        //turn(180);
+    
+        turnTowards(Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
     }
 }

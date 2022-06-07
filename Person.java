@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Person extends Actor
 {
+
     SimpleTimer time = new SimpleTimer();
     SimpleTimer jump = new SimpleTimer();
     /**
@@ -62,12 +63,5 @@ public class Person extends Actor
         
             
     }
-    public int returnX()
-    {
-        return getX();  
-    }
-    public int returnY()
-    {
-        return getY();
-    }
+   
 }
