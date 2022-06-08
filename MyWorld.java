@@ -50,6 +50,11 @@ public class MyWorld extends World
         Portal door = new Portal();
         addObject(door,550,350);
     }
+    public void spawnEnergyBall(int x, int y)
+    {
+        energyBall ball = new energyBall();
+        addObject(ball,x,y);
+    }
     public void nextWorld()
     {
         if(lvl == 0)
@@ -60,8 +65,11 @@ public class MyWorld extends World
         }
         if(lvl == 1)
         {
-            snake s = new snake();
-            addObject(s,100,200);
+            enemy e = new enemy();
+            enemy en = new enemy();
+            addObject(e,Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+            addObject(en,Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
+
         }
         if(lvl == 2)
         {
