@@ -19,7 +19,7 @@ public class dragon_fire extends Actor
     public dragon_fire()
     {
         setImage(part_one);
-        part_one.scale(200,100);
+        part_one.scale(100,50);
     }
     public void act()
     {
@@ -28,8 +28,7 @@ public class dragon_fire extends Actor
             coords();
             fire--;
         }
-        move(-3);
-        removeTouching(Person.class);
+        move(-1);
         if(isAtEdge())
         {
             getWorld().removeObject(this);

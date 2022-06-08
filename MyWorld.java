@@ -12,7 +12,7 @@ public class MyWorld extends World
     int x = 0;
     int personX = 0;
     int personY = 0;
-    
+    int lvl = 0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -25,10 +25,9 @@ public class MyWorld extends World
         addObject(p, 300, 380);
         snake s = new snake();
         addObject(s,100,200);
-        Dragon d = new Dragon();
-        //addObject(d, 300,100);
         Portal door = new Portal();
         addObject(door,550,350);
+       
     }
   
     public void spawnLaser(int x,int y)
@@ -53,8 +52,28 @@ public class MyWorld extends World
     }
     public void nextWorld()
     {
-        secondLevel second = new secondLevel();
-        Greenfoot.setWorld(second); 
+        if(lvl == 0)
+        {    
+            Dragon d = new Dragon();
+            addObject(d, 300,100);
+            
+        }
+        if(lvl == 1)
+        {
+            snake s = new snake();
+            addObject(s,100,200);
+        }
+        if(lvl == 2)
+        {
+            
+        }
+        if(lvl == 3)
+        {
+            
+        }
+        
+        
+        lvl++;
     }
    
     

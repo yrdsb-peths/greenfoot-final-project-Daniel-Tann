@@ -11,6 +11,8 @@ public class Dragon extends Actor
     GreenfootImage rightBoss = new GreenfootImage("images/PngItem_377031.png");
     GreenfootImage leftBoss = new GreenfootImage("images/PngItem_377031.png");
     String facing = "left";
+    int dragonHp = 10;
+    SimpleTimer damageCoolDown = new SimpleTimer();
     public Dragon()
     {
         rightBoss.mirrorHorizontally();
@@ -18,7 +20,7 @@ public class Dragon extends Actor
         leftBoss.scale(100,100);
         rightBoss.scale(100,100);
         dragonBreath.mark();
-        
+        damageCoolDown.mark();
     }
     
 
@@ -50,12 +52,24 @@ public class Dragon extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.spawnFire(getX(), getY());
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 20; i++)
             {
                 world.spawnFire(getX(), getY());
             }
             dragonBreath.mark();
         }
+        if(isTouching(banana.class) && damageCoolDown.millisElapsed() > 100)
+        {
+            removeTouching(banana.class);
+            dragonHp--;
+            if(dragonHp == 0)
+            {
+                MyWorld world = (MyWorld) getWorld();
+                world.removeObject(this);
+            }
+            damageCoolDown.mark();
+        }
+       
     }
     
 }

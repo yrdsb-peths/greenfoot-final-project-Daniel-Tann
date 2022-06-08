@@ -23,6 +23,7 @@ public class banana extends Actor
     }
     public void act()
     {   
+        
         if(shoot == 1)
         {
             mouseCoords();
@@ -35,6 +36,7 @@ public class banana extends Actor
             getWorld().removeObject(this);
             shoot++;
         }
+        
     }
     public void mouseCoords()
     {
@@ -45,5 +47,6 @@ public class banana extends Actor
         turn(180);
 
     }
+    
     
 }
