@@ -21,6 +21,10 @@ public class snake extends Actor
     {
         // Add your action code here.
         move(1);
+        if(isTouching(Shield.class))
+        {
+             turn(70);
+        }
         removeTouching(Person.class);
         if(isAtEdge())
         {

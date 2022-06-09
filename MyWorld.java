@@ -42,6 +42,11 @@ public class MyWorld extends World
         banana l = new banana();
         addObject(l,x,y);           
     }
+    public void spawnShield(int x, int y)
+    {
+        Shield protect = new Shield();
+        addObject(protect,x,y);
+    }
     public void mitosis()
     {
         snake dupe = new snake();
@@ -94,8 +99,8 @@ public class MyWorld extends World
         }
         if(lvl == 2)
         {
-            appleSpin apple = new appleSpin();
-            addObject(apple,300,200);
+            SlimeMonster sm = new SlimeMonster();
+            addObject(sm, 380,380);
         }
         if(lvl == 3)
         {

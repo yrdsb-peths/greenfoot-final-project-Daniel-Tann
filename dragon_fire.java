@@ -29,6 +29,10 @@ public class dragon_fire extends Actor
             fire--;
         }
         move(-1);
+        if(isTouching(Shield.class))
+        {
+           turn(70);
+        }
         if(isAtEdge())
         {
             getWorld().removeObject(this);

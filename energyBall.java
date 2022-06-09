@@ -26,6 +26,10 @@ public class energyBall extends Actor
             fire--;
         }
         move(-1);
+        if(isTouching(Shield.class))
+        {
+           turn(70);
+        }
         if(expand.millisElapsed() > 700)
         {
             MyWorld world = (MyWorld) getWorld();
