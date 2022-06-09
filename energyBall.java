@@ -9,10 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class energyBall extends Actor
 {
     int fire = 1;
+    SimpleTimer expand = new SimpleTimer();
     /**
      * Act - do whatever the energyBall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public energyBall()
+    {
+        expand.mark();
+    }
     public void act()
     {
         if(fire == 1)
@@ -21,6 +26,12 @@ public class energyBall extends Actor
             fire--;
         }
         move(-1);
+        if(expand.millisElapsed() > 700)
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.spawnEnergyBall(getX(), getY());
+            expand.mark();
+        }
         if(isAtEdge())
         {
             getWorld().removeObject(this);

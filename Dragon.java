@@ -62,9 +62,10 @@ public class Dragon extends Actor
         {
             removeTouching(banana.class);
             dragonHp--;
+            MyWorld world = (MyWorld) getWorld();
+            world.dHpDecrease();
             if(dragonHp == 0)
             {
-                MyWorld world = (MyWorld) getWorld();
                 world.removeObject(this);
             }
             damageCoolDown.mark();

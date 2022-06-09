@@ -13,6 +13,9 @@ public class MyWorld extends World
     int personX = 0;
     int personY = 0;
     int lvl = 0;
+    int dHp = 10;
+    Label dHpScore;
+    Label hpText;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -24,7 +27,11 @@ public class MyWorld extends World
         Person p = new Person();
         addObject(p, 300, 380);
         snake s = new snake();
-        addObject(s,100,200);
+        snake sn = new snake();
+        snake sna = new snake();
+        addObject(s,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
+        addObject(sn,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
+        addObject(sna,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
         Portal door = new Portal();
         addObject(door,550,350);
        
@@ -55,10 +62,24 @@ public class MyWorld extends World
         energyBall ball = new energyBall();
         addObject(ball,x,y);
     }
+    public void dHpDecrease()
+    {
+        dHp--;
+        dHpScore.setValue(dHp);
+        if(dHp == 0)
+        {
+            removeObject(hpText);
+            removeObject(dHpScore);
+        }
+    }
     public void nextWorld()
     {
         if(lvl == 0)
-        {    
+        {   
+            hpText = new Label("Dragon HP:",30);
+            dHpScore = new Label("10", 30);
+            addObject(hpText,70,20);
+            addObject(dHpScore,160, 20);
             Dragon d = new Dragon();
             addObject(d, 300,100);
             
@@ -73,7 +94,8 @@ public class MyWorld extends World
         }
         if(lvl == 2)
         {
-            
+            appleSpin apple = new appleSpin();
+            addObject(apple,300,200);
         }
         if(lvl == 3)
         {

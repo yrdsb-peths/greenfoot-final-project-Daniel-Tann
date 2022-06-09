@@ -26,7 +26,7 @@ public class snake extends Actor
         {
             turn(70);
         }
-        if(spawn.millisElapsed() > 3000)
+        if(spawn.millisElapsed() > 10000)
         {
             MyWorld world = (MyWorld) getWorld();
             world.mitosis();

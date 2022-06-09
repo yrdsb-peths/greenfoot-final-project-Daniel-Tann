@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class enemy extends Actor
 {
+    GreenfootImage wizard = new GreenfootImage("images/wizard.png");
     /**
      * Act - do whatever the enemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -15,7 +16,9 @@ public class enemy extends Actor
     SimpleTimer cast = new SimpleTimer();
     public enemy()
     {
+        setImage(wizard);
         cast.mark();
+        wizard.scale(100,100);
     }
     public void act()
     {
@@ -24,7 +27,7 @@ public class enemy extends Actor
             setLocation(Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(200));
             MyWorld world = (MyWorld) getWorld();
             world.spawnEnergyBall(getX(), getY());
-            for(int i = 0; i < 10; i++)
+            for(int i = 0; i < 6; i++)
             {
                 world.spawnEnergyBall(getX(), getY());
             }
