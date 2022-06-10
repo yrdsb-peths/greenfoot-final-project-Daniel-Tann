@@ -14,17 +14,26 @@ public class enemy extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     SimpleTimer cast = new SimpleTimer();
+    SimpleTimer teleport = new SimpleTimer();
+    SimpleTimer damageCoolDown = new SimpleTimer();
+    int wizardHp = 4;
+    int x = 2000;
     public enemy()
     {
         setImage(wizard);
         cast.mark();
+        teleport.mark();
         wizard.scale(100,100);
     }
     public void act()
     {
-        if(cast.millisElapsed() > 2000)
+        if(teleport.millisElapsed() > 1000)
         {
             setLocation(Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(200));
+            teleport.mark();
+        }
+        if(cast.millisElapsed() > x)
+        {
             MyWorld world = (MyWorld) getWorld();
             world.spawnEnergyBall(getX(), getY());
             for(int i = 0; i < 6; i++)
@@ -33,7 +42,19 @@ public class enemy extends Actor
             }
             cast.mark();
         }
-        
+        if(isTouching(banana.class) && damageCoolDown.millisElapsed() > 500)
+        {
+            removeTouching(banana.class);
+            wizardHp--;
+            MyWorld world = (MyWorld) getWorld();
+            world.wizardHpDecrease();
+            x-=100;
+            if(wizardHp <= 0)
+            {
+                world.removeObject(this);
+            }
+            damageCoolDown.mark();
+        }
         // Add your action code here.
     }
     

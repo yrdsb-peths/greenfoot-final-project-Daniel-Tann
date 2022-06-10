@@ -19,7 +19,7 @@ public class Portal extends Actor
     }
     public void act()
     {
-       if(getNeighbours(600, true, snake.class).size() < 1 && getNeighbours(600, true, Dragon.class).size() < 1)
+       if(getNeighbours(600, true, snake.class).size() < 1 && getNeighbours(600, true, Dragon.class).size() < 1 && getNeighbours(600, true, enemy.class).size() < 1 && getNeighbours(600, true, SlimeMonster.class).size() < 1)
        {
            if(isTouching(Person.class))
            {

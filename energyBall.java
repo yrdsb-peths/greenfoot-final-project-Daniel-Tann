@@ -30,7 +30,7 @@ public class energyBall extends Actor
         {
            turn(70);
         }
-        if(expand.millisElapsed() > 700)
+        if(expand.millisElapsed() > 900)
         {
             MyWorld world = (MyWorld) getWorld();
             world.spawnEnergyBall(getX(), getY());

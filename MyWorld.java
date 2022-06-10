@@ -8,14 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-    boolean test = true;
+
     int x = 0;
     int personX = 0;
     int personY = 0;
     int lvl = 0;
     int dHp = 10;
+    int wizardHp = 4;
+    int slimeHp = 5;
     Label dHpScore;
-    Label hpText;
+    Label dHpText;
+    Label wizardHpScore;
+    Label wizardHpText;
+    Label slimeHpScore;
+    Label slimeHpText;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -73,17 +79,54 @@ public class MyWorld extends World
         dHpScore.setValue(dHp);
         if(dHp == 0)
         {
-            removeObject(hpText);
+            removeObject(dHpText);
             removeObject(dHpScore);
         }
+    
     }
+    public void wizardHpDecrease()
+    {
+        wizardHp--;
+        wizardHpScore.setValue(wizardHp);
+        if(wizardHp <= 0 )
+        {
+            removeObject(wizardHpText);
+            removeObject(wizardHpScore);
+        }
+    }
+    public void slimeHpDecrease()
+    {
+        slimeHp--;
+        slimeHpScore.setValue(slimeHp);
+        if(slimeHp == 0)
+        {
+            removeObject(slimeHpText);
+            removeObject(slimeHpScore);
+        }
+    }
+    public void slimeHpIncrease()
+    {
+        slimeHp+= 5;
+        slimeHpScore.setValue(slimeHp);
+    }
+    public void summonJuice(int x, int y)
+    {
+        slimeJuice sludge = new slimeJuice();
+        addObject(sludge,x,y);
+    }
+    public void shootJuice(int x, int y)
+    {
+        SlimeShot shootJuice = new SlimeShot();
+        addObject(shootJuice,x,y);
+    }
+    
     public void nextWorld()
     {
         if(lvl == 0)
         {   
-            hpText = new Label("Dragon HP:",30);
+            dHpText = new Label("Dragon HP:",30);
             dHpScore = new Label("10", 30);
-            addObject(hpText,70,20);
+            addObject(dHpText,70,20);
             addObject(dHpScore,160, 20);
             Dragon d = new Dragon();
             addObject(d, 300,100);
@@ -92,13 +135,18 @@ public class MyWorld extends World
         if(lvl == 1)
         {
             enemy e = new enemy();
-            enemy en = new enemy();
             addObject(e,Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
-            addObject(en,Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
-
+            wizardHpText = new Label("Wizard HP:", 30);
+            wizardHpScore = new Label("4",30);
+            addObject(wizardHpText,70,20);
+            addObject(wizardHpScore, 160,20);
         }
         if(lvl == 2)
         {
+            slimeHpText = new Label("Slime Hp:" , 30);
+            slimeHpScore = new Label("5", 30);
+            addObject(slimeHpText,70,20);
+            addObject(slimeHpScore,160, 20);
             SlimeMonster sm = new SlimeMonster();
             addObject(sm, 380,380);
         }

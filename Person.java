@@ -65,7 +65,7 @@ public class Person extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.spawnShield(getX(),getY());
         }
-        if(getNeighbours(600, true, snake.class).size() < 1 && getNeighbours(600, true, Dragon.class).size() < 1)
+        if(getNeighbours(600, true, snake.class).size() < 1 && getNeighbours(600, true, Dragon.class).size() < 1 && getNeighbours(600, true, enemy.class).size() < 1 && getNeighbours(600, true, SlimeMonster.class).size() < 1)
         {
             if(isTouching(Portal.class))
             {

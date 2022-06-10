@@ -31,7 +31,6 @@ public class banana extends Actor
         }
         move(-5);
         removeTouching(snake.class);
-        removeTouching(enemy.class);
         if(isAtEdge())
         {
             getWorld().removeObject(this);
