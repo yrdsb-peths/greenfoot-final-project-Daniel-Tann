@@ -54,7 +54,7 @@ public class Person extends Actor
         {
             setLocation(getX(), getY()+1);
         }
-        if(shoot.millisElapsed() > 1000)
+        if(shoot.millisElapsed() > 0)
         {
             if(mouse != null)
             {            

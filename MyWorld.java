@@ -35,13 +35,11 @@ public class MyWorld extends World
         snake s = new snake();
         snake sn = new snake();
         snake sna = new snake();
-        addObject(s,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
-        addObject(sn,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
-        addObject(sna,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
+        addObject(s,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(200));
+        addObject(sn,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(200));
+        addObject(sna,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(200));
         Portal door = new Portal();
         addObject(door,550,350);
-        
-       
     }
   
     public void spawnLaser(int x,int y)
@@ -120,7 +118,11 @@ public class MyWorld extends World
         SlimeShot shootJuice = new SlimeShot();
         addObject(shootJuice,x,y);
     }
-    
+    public void summonStar()
+    {
+        star w = new star();
+        addObject(w,Greenfoot.getRandomNumber(600),0);
+    }
     public void attackOne(int x, int y)
     {
         BossAttack2 at = new BossAttack2();

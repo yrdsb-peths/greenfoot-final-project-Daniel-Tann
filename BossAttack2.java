@@ -28,5 +28,6 @@ public class BossAttack2 extends Actor
         }
         turn(1);
         rotate++;
+        
     }
 }
