@@ -11,6 +11,7 @@ public class Person extends Actor
 
     SimpleTimer time = new SimpleTimer();
     SimpleTimer jump = new SimpleTimer();
+    SimpleTimer shoot = new SimpleTimer();
     /**
      * Act - do whatever the Person wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -19,6 +20,7 @@ public class Person extends Actor
     {
         time.mark();
         jump.mark();
+        shoot.mark();
     }
 
     public void act()
@@ -52,12 +54,16 @@ public class Person extends Actor
         {
             setLocation(getX(), getY()+1);
         }
-        if(mouse != null)
-        {            
-            if(mouse.getButton() == 1)
-            {
-                MyWorld world = (MyWorld) getWorld();
-                world.spawnLaser(getX(), getY());
+        if(shoot.millisElapsed() > 1000)
+        {
+            if(mouse != null)
+            {            
+                if(mouse.getButton() == 1)
+                {
+                    shoot.mark();
+                    MyWorld world = (MyWorld) getWorld();
+                    world.spawnLaser(getX(), getY());
+                }
             }
         }
         if(Greenfoot.isKeyDown("e"))

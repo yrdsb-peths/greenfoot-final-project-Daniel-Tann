@@ -29,7 +29,7 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1, false); 
         Person p = new Person();
         addObject(p, 300, 380);
         snake s = new snake();
@@ -40,6 +40,7 @@ public class MyWorld extends World
         addObject(sna,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(400));
         Portal door = new Portal();
         addObject(door,550,350);
+        
        
     }
   
@@ -120,6 +121,16 @@ public class MyWorld extends World
         addObject(shootJuice,x,y);
     }
     
+    public void attackOne(int x, int y)
+    {
+        BossAttack2 at = new BossAttack2();
+        addObject(at,x,y);
+    }
+    public void attackTwo()
+    {
+        BossAttack1 a = new BossAttack1();
+        addObject(a,Greenfoot.getRandomNumber(600),0);
+    }
     public void nextWorld()
     {
         if(lvl == 0)
@@ -152,7 +163,8 @@ public class MyWorld extends World
         }
         if(lvl == 3)
         {
-            
+            FinalBoss boss = new FinalBoss();
+            addObject(boss,100,100);
         }
         
         
