@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class star extends Actor
 {
-    GreenfootImage star = new GreenfootImage("images/star");
+    GreenfootImage star = new GreenfootImage("images/star.png");
     /**
      * Act - do whatever the star wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -16,7 +16,7 @@ public class star extends Actor
     public star()
     {
         setImage(star);
-        star.scale(20,20);
+        star.scale(50,50);
     }
     public void act()
     {

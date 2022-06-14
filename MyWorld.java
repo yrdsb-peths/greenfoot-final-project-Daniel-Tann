@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
     int x = 0;
     int personX = 0;
     int personY = 0;
@@ -16,12 +15,18 @@ public class MyWorld extends World
     int dHp = 10;
     int wizardHp = 4;
     int slimeHp = 5;
+    int bossHp = 5;
+    boolean attackBoss = false;
+    Label win;
+    Label lose;
     Label dHpScore;
     Label dHpText;
     Label wizardHpScore;
     Label wizardHpText;
     Label slimeHpScore;
     Label slimeHpText;
+    Label bossHpScore;
+    Label bossHpText;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -41,7 +46,16 @@ public class MyWorld extends World
         Portal door = new Portal();
         addObject(door,550,350);
     }
-  
+    public void winScreen()
+    {
+        win = new Label("You Win!" , 80);
+        addObject(win, 300, 200);
+    }
+    public void loseScreen()
+    {
+        lose = new Label("You Lose!", 80);
+        addObject(lose,300, 200);
+    }
     public void spawnLaser(int x,int y)
     {
         banana l = new banana();
@@ -103,6 +117,17 @@ public class MyWorld extends World
             removeObject(slimeHpScore);
         }
     }
+    public void bossHpDecrease()
+    {
+        bossHp--;
+        bossHpScore.setValue(bossHp);
+        if(bossHp == 0)
+        {
+            removeObject(bossHpText);
+            removeObject(bossHpScore);
+        }
+    }
+    
     public void slimeHpIncrease()
     {
         slimeHp+= 5;
@@ -133,6 +158,18 @@ public class MyWorld extends World
         BossAttack1 a = new BossAttack1();
         addObject(a,Greenfoot.getRandomNumber(600),0);
     }
+    public void hitBoss()
+    {
+        attackBoss = true;
+    }
+    public boolean returnHitBoss()
+    {
+        return attackBoss;
+    }
+    public void deHitBoss()
+    {
+        attackBoss = false;
+    }
     public void nextWorld()
     {
         if(lvl == 0)
@@ -161,10 +198,14 @@ public class MyWorld extends World
             addObject(slimeHpText,70,20);
             addObject(slimeHpScore,160, 20);
             SlimeMonster sm = new SlimeMonster();
-            addObject(sm, 380,380);
+            addObject(sm, 580,380);
         }
         if(lvl == 3)
         {
+            bossHpText = new Label("Boss Hp:" , 30);
+            bossHpScore = new Label("5", 30);
+            addObject(bossHpText,70,20);
+            addObject(bossHpScore, 160, 20);
             FinalBoss boss = new FinalBoss();
             addObject(boss,100,100);
         }

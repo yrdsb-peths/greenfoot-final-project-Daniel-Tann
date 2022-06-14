@@ -8,10 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Person extends Actor
 {
-
     SimpleTimer time = new SimpleTimer();
     SimpleTimer jump = new SimpleTimer();
     SimpleTimer shoot = new SimpleTimer();
+    SimpleTimer gracePeriod = new SimpleTimer();
+    SimpleTimer shieldCoolDown = new SimpleTimer();
     /**
      * Act - do whatever the Person wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,6 +22,7 @@ public class Person extends Actor
         time.mark();
         jump.mark();
         shoot.mark();
+        shieldCoolDown.mark();
     }
 
     public void act()
@@ -66,10 +68,11 @@ public class Person extends Actor
                 }
             }
         }
-        if(Greenfoot.isKeyDown("e"))
+        if(Greenfoot.isKeyDown("e") && shieldCoolDown.millisElapsed() > 3500)
         {
             MyWorld world = (MyWorld) getWorld();
             world.spawnShield(getX(),getY());
+            shieldCoolDown.mark();
         }
         if(getNeighbours(600, true, snake.class).size() < 1 && getNeighbours(600, true, Dragon.class).size() < 1 && getNeighbours(600, true, enemy.class).size() < 1 && getNeighbours(600, true, SlimeMonster.class).size() < 1)
         {
@@ -81,6 +84,18 @@ public class Person extends Actor
                 
             }
            
+        }
+        if(isTouching(star.class))
+        {
+            gracePeriod.mark();
+            removeTouching(star.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.hitBoss();
+        }
+        if(gracePeriod.millisElapsed() > 3000)
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.deHitBoss();
         }
         
             

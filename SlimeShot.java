@@ -21,6 +21,12 @@ public class SlimeShot extends Actor
     }
     public void act()
     {
+        if(isTouching(Person.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.loseScreen();
+            removeTouching(Person.class);
+        }
         if(shoot == 1)
         {
             coords();

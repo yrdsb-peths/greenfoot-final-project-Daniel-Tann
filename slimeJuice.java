@@ -23,7 +23,12 @@ public class slimeJuice extends Actor
     }
     public void act()
     {
-        //removeTouching(Person.class);
+        if(isTouching(Person.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.loseScreen();
+            removeTouching(Person.class);
+        }
         if(getY() < 380)
         {
             setLocation(getX(), getY()+1);

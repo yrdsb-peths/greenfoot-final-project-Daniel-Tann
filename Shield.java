@@ -21,7 +21,6 @@ public class Shield extends Actor
         setImage(summonShield);
         summonShield.scale(100,100);
         grace.mark();
-        
     }
     public void act()
     {

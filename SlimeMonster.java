@@ -32,6 +32,12 @@ public class SlimeMonster extends Actor
     }
     public void act()
     {
+        if(isTouching(Person.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.loseScreen();
+            removeTouching(Person.class);
+        }
         if(facing.equals("left"))
         {
             move(-1);
@@ -73,6 +79,7 @@ public class SlimeMonster extends Actor
             }
             damageCoolDown.mark();
         }
+      
         if(damageCoolDown.millisElapsed() > 10000)
         {
             slimeHp += 5;

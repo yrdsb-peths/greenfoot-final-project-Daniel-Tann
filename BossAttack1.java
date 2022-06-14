@@ -21,6 +21,16 @@ public class BossAttack1 extends Actor
     }
     public void act()
     {
+        if(isTouching(BossAttack1.class))
+        {
+            setLocation(Greenfoot.getRandomNumber(600), getY());
+        }
+        if(isTouching(Person.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.loseScreen();
+            removeTouching(Person.class);
+        }
         setLocation(getX(), getY()+1);
     }
 }

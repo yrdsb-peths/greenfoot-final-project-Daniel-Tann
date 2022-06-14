@@ -52,7 +52,7 @@ public class Dragon extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.spawnFire(getX(), getY());
-            for(int i = 0; i < 20; i++)
+            for(int i = 0; i < 8; i++)
             {
                 world.spawnFire(getX(), getY());
             }

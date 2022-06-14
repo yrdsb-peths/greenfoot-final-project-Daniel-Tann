@@ -27,5 +27,10 @@ public class Portal extends Actor
                 world.removeObject(this);
            }
        }
+       if(getNeighbours(600, true, FinalBoss.class).size() >= 1)
+       {
+            MyWorld world = (MyWorld) getWorld();
+           world.removeObject(this);
+       }
     }
 }

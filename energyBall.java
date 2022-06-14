@@ -28,6 +28,7 @@ public class energyBall extends Actor
         move(-1);
         if(isTouching(Shield.class))
         {
+            setLocation(getX(), getY()-20);
            turn(70);
         }
         if(expand.millisElapsed() > 900)
@@ -35,6 +36,12 @@ public class energyBall extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.spawnEnergyBall(getX(), getY());
             expand.mark();
+        }
+        if(isTouching(Person.class))
+        {
+            MyWorld world = (MyWorld) getWorld();
+            world.loseScreen();
+            removeTouching(Person.class);
         }
         if(isAtEdge())
         {
