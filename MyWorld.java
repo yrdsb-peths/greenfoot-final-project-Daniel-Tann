@@ -63,10 +63,10 @@ public class MyWorld extends World
         addObject(win, 300, 200);
         time = timer.millisElapsed()/1000;
         timeText = new Label("Time To Beat:" , 50);
-        timeRecord = new Label("0", 50);
+        timeRecord = new Label("0", 45);
         timeRecord.setValue(time);
         addObject(timeText, 300,270);
-        addObject(timeRecord, 450,270);
+        addObject(timeRecord, 480,270);
     }
     /**
      * Creates a "You Lose" label on the screen when player is killed.
@@ -84,21 +84,27 @@ public class MyWorld extends World
         banana l = new banana();
         addObject(l,x,y);           
     }
-    
-    
-    public int getYCoord()
-    {
-        return personY;
-    }
-    public int getXCoord()
-    {
-        return personX;     
-    }
-    
+    /**
+     * Updates the values of personX and personY with the given values.
+     */
     public void updateCoord(int x, int y)
     {
         personX = x;
         personY = y;
+    }
+    /**
+     * Returns the value of personY.
+     */
+    public int getYCoord()
+    {
+        return personY;
+    }
+    /**
+     * Returns the value of personX.
+     */
+    public int getXCoord()
+    {
+        return personX;     
     }
     /**
      * Creates a shield to protect the player at the specified x and y coordinates.
@@ -310,7 +316,6 @@ public class MyWorld extends World
             FinalBoss boss = new FinalBoss();
             addObject(boss,100,100);
         }
-        
         lvl++;
     }
    

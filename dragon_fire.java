@@ -42,7 +42,7 @@ public class dragon_fire extends Actor
             turn.mark();
         }
         
-        if(isTouching(Person.class))
+        if(isTouching(Person.class) && getNeighbours(600, true, Shield.class).size() < 1)
         {
             MyWorld world = (MyWorld) getWorld();
             world.loseScreen();
