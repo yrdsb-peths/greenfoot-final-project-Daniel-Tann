@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    SimpleTimer timer = new SimpleTimer();
+    int time = 0;
     int x = 0;
     int personX = 0;
     int personY = 0;
@@ -17,6 +19,8 @@ public class MyWorld extends World
     int slimeHp = 5;
     int bossHp = 5;
     boolean attackBoss = false;
+    Label timeText;
+    Label timeRecord;
     Label win;
     Label lose;
     Label dHpScore;
@@ -27,6 +31,13 @@ public class MyWorld extends World
     Label slimeHpText;
     Label bossHpScore;
     Label bossHpText;
+    GreenfootImage backRoundThree = new GreenfootImage("images/Backround3.jpg");
+    GreenfootImage backRoundFour = new GreenfootImage("images/Backround4.png");
+    GreenfootImage backRoundFive = new GreenfootImage("images/Backround5.png");
+    GreenfootImage backRoundSix = new GreenfootImage("images/Backround6.png");
+    GreenfootImage backRoundSeven = new GreenfootImage("images/Backround7.png");
+    GreenfootSound gameMusic = new GreenfootSound("music.mp3");
+
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -34,7 +45,9 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1, false); 
+        super(600, 400, 1, false);
+        gameMusic.play();
+        timer.mark();
         Person p = new Person();
         addObject(p, 300, 380);
         snake s = new snake();
@@ -43,6 +56,7 @@ public class MyWorld extends World
         addObject(s,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(200));
         addObject(sn,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(200));
         addObject(sna,Greenfoot.getRandomNumber(600),Greenfoot.getRandomNumber(200));
+        setBackground(backRoundThree);
         Portal door = new Portal();
         addObject(door,550,350);
     }
@@ -50,6 +64,12 @@ public class MyWorld extends World
     {
         win = new Label("You Win!" , 80);
         addObject(win, 300, 200);
+        time = timer.millisElapsed()/1000;
+        timeText = new Label("Time To Beat:" , 50);
+        timeRecord = new Label("0", 50);
+        timeRecord.setValue(time);
+        addObject(timeText, 300,270);
+        addObject(timeRecord, 450,270);
     }
     public void loseScreen()
     {
@@ -174,16 +194,17 @@ public class MyWorld extends World
     {
         if(lvl == 0)
         {   
+            setBackground(backRoundFour);
             dHpText = new Label("Dragon HP:",30);
             dHpScore = new Label("10", 30);
             addObject(dHpText,70,20);
             addObject(dHpScore,160, 20);
             Dragon d = new Dragon();
             addObject(d, 300,100);
-            
         }
         if(lvl == 1)
         {
+            setBackground(backRoundFive);
             enemy e = new enemy();
             addObject(e,Greenfoot.getRandomNumber(600), Greenfoot.getRandomNumber(400));
             wizardHpText = new Label("Wizard HP:", 30);
@@ -193,6 +214,7 @@ public class MyWorld extends World
         }
         if(lvl == 2)
         {
+            setBackground(backRoundSix);
             slimeHpText = new Label("Slime Hp:" , 30);
             slimeHpScore = new Label("5", 30);
             addObject(slimeHpText,70,20);
@@ -202,6 +224,7 @@ public class MyWorld extends World
         }
         if(lvl == 3)
         {
+            setBackground(backRoundSeven);
             bossHpText = new Label("Boss Hp:" , 30);
             bossHpScore = new Label("5", 30);
             addObject(bossHpText,70,20);

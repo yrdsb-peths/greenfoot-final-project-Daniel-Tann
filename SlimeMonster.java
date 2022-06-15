@@ -96,7 +96,7 @@ public class SlimeMonster extends Actor
             world.summonJuice(getX(), getY());
             sludgeCoolDown.mark();
         }
-        if(shootCoolDown.millisElapsed() > 5000)
+        if(shootCoolDown.millisElapsed() > 4000)
         {
             MyWorld world = (MyWorld) getWorld();   
             for(int i = 0; i < 10; i++)

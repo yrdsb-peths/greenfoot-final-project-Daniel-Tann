@@ -15,7 +15,7 @@ public class Controls extends World
     Label jump = new Label("Jump: W - Gravity Exists",35);
     Label shoot = new Label("Shoot: Aim and left click on target", 35);
     Label proceed = new Label("Press <>Space<>", 40);
-
+    Label shield = new Label("Shield: E (Can Deflect MOST attacks)", 35);
     /**
      * Constructor for objects of class Controls.
      * 
@@ -31,6 +31,7 @@ public class Controls extends World
         addObject(jump,190,380);
         addObject(shoot,270,260);
         addObject(proceed, 300,150);
+        addObject(shield,270,220);
     }
     public void act()
     {

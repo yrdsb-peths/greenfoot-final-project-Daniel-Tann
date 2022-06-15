@@ -36,7 +36,7 @@ public class enemy extends Actor
         {
             MyWorld world = (MyWorld) getWorld();
             world.spawnEnergyBall(getX(), getY());
-            for(int i = 0; i < 6; i++)
+            for(int i = 0; i < 5; i++)
             {
                 world.spawnEnergyBall(getX(), getY());
             }

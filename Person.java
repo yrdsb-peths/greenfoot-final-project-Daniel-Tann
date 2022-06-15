@@ -28,6 +28,14 @@ public class Person extends Actor
     public void act()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(getX() > 599)
+        {
+            setLocation(598, getY());
+        }
+        if(getX() < 1)
+        {
+            setLocation(2, getY());
+        }
         if(time.millisElapsed() > 1000 && Greenfoot.isKeyDown("d") && Greenfoot.isKeyDown("shift"))
         {
             setLocation(getX()+80,getY());
@@ -56,7 +64,7 @@ public class Person extends Actor
         {
             setLocation(getX(), getY()+1);
         }
-        if(shoot.millisElapsed() > 0)
+        if(shoot.millisElapsed() > 1000)
         {
             if(mouse != null)
             {            
