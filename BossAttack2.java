@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BossAttack2 here.
+ * The second type of attack the boss uses.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan) 
+ * @version (June 2022)
  */
 public class BossAttack2 extends Actor
 {

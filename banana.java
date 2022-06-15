@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class banana here.
+ * A class which allows the player to shoot a laser.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan) 
+ * @version (June 2022)
  */
 public class banana extends Actor
 {

@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class snake here.
+ * The main actor class for the snake enmy.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan) 
+ * @version (June 2022)
  */
 public class snake extends Actor
 {
@@ -19,7 +19,6 @@ public class snake extends Actor
     }
     public void act()
     {
-        // Add your action code here.
         move(1);
         if(isTouching(Shield.class))
         {

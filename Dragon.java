@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
- * Write a description of class Dragon here.
+ * The main actor class for the dragon enemy.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan) 
+ * @version (June 2022)
  */
 public class Dragon extends Actor
 {
@@ -22,12 +22,6 @@ public class Dragon extends Actor
         dragonBreath.mark();
         damageCoolDown.mark();
     }
-    
-
-    /**
-     * Act - do whatever the Dragon wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act()
     {
         if(facing.equals("left"))
@@ -69,9 +63,6 @@ public class Dragon extends Actor
                 world.removeObject(this);
             }
             damageCoolDown.mark();
-        }
-       
-       
+        }   
     }
-    
 }

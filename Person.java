@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Person here.
+ * The main actor class the player plays.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan) 
+ * @version (June 2022)
  */
 public class Person extends Actor
 {
@@ -28,6 +28,8 @@ public class Person extends Actor
     public void act()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
+        MyWorld world = (MyWorld) getWorld();
+        world.updateCoord(getX(), getY());
         if(getX() > 599)
         {
             setLocation(598, getY());
@@ -71,14 +73,12 @@ public class Person extends Actor
                 if(mouse.getButton() == 1)
                 {
                     shoot.mark();
-                    MyWorld world = (MyWorld) getWorld();
                     world.spawnLaser(getX(), getY());
                 }
             }
         }
         if(Greenfoot.isKeyDown("e") && shieldCoolDown.millisElapsed() > 3500)
         {
-            MyWorld world = (MyWorld) getWorld();
             world.spawnShield(getX(),getY());
             shieldCoolDown.mark();
         }
@@ -87,7 +87,6 @@ public class Person extends Actor
             if(isTouching(Portal.class))
             {
                 setLocation(50, 380);
-                MyWorld world = (MyWorld) getWorld();
                 world.nextWorld();
                 
             }
@@ -97,12 +96,10 @@ public class Person extends Actor
         {
             gracePeriod.mark();
             removeTouching(star.class);
-            MyWorld world = (MyWorld) getWorld();
             world.hitBoss();
         }
         if(gracePeriod.millisElapsed() > 3000)
         {
-            MyWorld world = (MyWorld) getWorld();
             world.deHitBoss();
         }
         

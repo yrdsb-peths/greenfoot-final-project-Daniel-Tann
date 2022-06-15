@@ -1,20 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TitleScreen here.
+ * The title screen of the world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan)
+ * @version (June 2022)
  */
 public class TitleScreen extends World
 {
     Label titleLabel = new Label("Game", 80);
     Label objective = new Label("Objective: Eliminate all targets and survive",30);
     Label proceed = new Label("Press <>Space<>", 40);
-    /**
-     * Constructor for objects of class TitleScreen.
-     * 
-     */
     public TitleScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

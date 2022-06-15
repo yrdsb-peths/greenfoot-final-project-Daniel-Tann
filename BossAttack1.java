@@ -1,18 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BossAttack1 here.
+ * The actor for the first type of attack the boss uses.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan) 
+ * @version (June 2022)
  */
 public class BossAttack1 extends Actor
 {
     GreenfootImage attack = new GreenfootImage("images/bossBeam.png");
-    /**
-     * Act - do whatever the BossAttack1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public BossAttack1()
     {
         setImage(attack);

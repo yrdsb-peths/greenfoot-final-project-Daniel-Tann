@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Controls here.
+ * The world to show the user what the controls are.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel Tan)
+ * @version (June 2022)
  */
 public class Controls extends World
 {
